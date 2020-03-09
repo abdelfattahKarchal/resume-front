@@ -2,15 +2,48 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { EducationComponent } from './components/education/education.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { SkillComponent } from './components/skill/skill.component';
+import { SlideOutComponent } from './components/slide-out/slide-out.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+
+import { RouterModule, Routes } from '@angular/router';
+import {APP_BASE_HREF} from '@angular/common';
+
+const appRoutes : Routes=[
+  { path: '' , component : HomeComponent},
+  { path: 'about' , component : AboutComponent},
+  { path: 'skill' , component : SkillComponent},
+  { path: 'experience' , component : ExperienceComponent},
+  { path: 'education' , component : EducationComponent},
+  { path: 'contact' , component : ContactComponent},
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent,
+    ContactComponent,
+    EducationComponent,
+    ExperienceComponent,
+    SkillComponent,
+    SlideOutComponent,
+    HeaderComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'},
+
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

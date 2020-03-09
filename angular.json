@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "frontportfolio": {
@@ -24,9 +24,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css",
+              "src/assets/fonts/ionicons/css/ionicons.min.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/owl.theme.default.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontportfolio"
+    }
+  },
+  "defaultProject": "frontportfolio",
+  "cli": {
+    "analytics": "f8098957-3df3-4096-8a3d-4cf2b4c650cc"
+  }
 }
