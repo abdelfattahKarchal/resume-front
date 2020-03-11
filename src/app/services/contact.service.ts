@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { About } from '../components/models/about';
+import { Contact } from '../components/models/contact';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AboutService {
-  apiUrl = "http://127.0.0.1:8000/abouts";
-
+export class ContactService {
+  apiUrl = "http://127.0.0.1:8000/contacts";
   constructor(private http:HttpClient) { }
 
   findAll(){
-    return this.http.get<About>(this.apiUrl);
+    return this.http.get<Contact>(this.apiUrl);
   }
-
 }

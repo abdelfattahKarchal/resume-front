@@ -3,20 +3,21 @@
       <div class="container">
           <div class="row">
               <div class="col-sm-4">
+
                   <h4>Adresse</h4>
-                  <p>25 rue 2 lot iraki 2 touarga,<br />Meknes Maroc.</p>
+                  <p>{{addressCity[0]}}<br />{{addressCity[1]}} {{addressCity[2]}}</p>
               </div> <!-- end .col-sm-4 -->
               <div class="col-sm-4">
                   <h4>Connect</h4>
                   <div class="social-icons">
-                      <a href="https://www.facebook.com/karchal.abdelfattah" class="social-icon"><i class="fa fa-facebook"></i></a>
+                      <a href="{{contactsResults.facebook}}" class="social-icon"><i class="fa fa-facebook"></i></a>
                       <a href="" class="social-icon"><i class="fa fa-twitter"></i></a>
-                      <a href="https://www.linkedin.com/in/abdelfattah-karchal-26042078/" class="social-icon"><i class="fa fa-linkedin"></i></a>
+                      <a href="{{contactsResults.linkedin}}" class="social-icon"><i class="fa fa-linkedin"></i></a>
                   </div> <!-- end .social-icons -->
               </div> <!-- end .col-sm-4 -->
               <div class="col-sm-4">
                   <h4>Contact</h4>
-                  <p>Tel: +212 614027854<br />Mail: abdelfattah59@gmail.com</p>
+                  <p>Tel: {{ contactsResults.phone }}<br />Mail: {{contactsResults.email}}</p>
               </div> <!-- end .col-sm-4 -->
           </div> <!-- end .row -->
       </div> <!-- end .container -->

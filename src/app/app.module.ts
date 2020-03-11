@@ -15,6 +15,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
 
+// HttpClientModule sert pour communiquer avec des requetes http
+import { HttpClientModule } from '@angular/common/http';
+  //import { from } from 'rxjs';
+
 const appRoutes : Routes=[
   { path: '' , component : HomeComponent},
   { path: 'about' , component : AboutComponent},
@@ -39,7 +43,8 @@ const appRoutes : Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'},
 
