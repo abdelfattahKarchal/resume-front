@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EducationService } from 'src/app/services/education.service';
+import { Education } from '../models/education';
 
 @Component({
   selector: 'app-education',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EducationComponent implements OnInit {
 
-  constructor() { }
+  educations : Education[] = [];
+  constructor(private educationservice:EducationService) { }
 
   ngOnInit(): void {
+    this.getEducations();
+  }
+
+  getEducations(){
+    this.educationservice.getAll().subscribe((educations) =>{
+      this.educations = educations['data'];
+      console.log(educations);
+    } );
+
   }
 
 }

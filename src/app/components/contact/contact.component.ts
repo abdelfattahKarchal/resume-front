@@ -20,8 +20,8 @@ export class ContactComponent implements OnInit {
   getContacts(){
     this.contactservice.findAll().subscribe((contact)=>{
       this.contactsResults = contact['data'];
-this.addressComplet =this.contactsResults.address;
-this.addressCity = this.addressComplet.split(',');
+      this.addressComplet =this.contactsResults.address;
+      this.addressCity = this.addressComplet.split(',');
     })
   }
 
