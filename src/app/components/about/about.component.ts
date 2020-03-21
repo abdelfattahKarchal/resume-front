@@ -3,6 +3,8 @@ import { AboutService } from 'src/app/services/about.service';
 import { About } from '../models/about';
 import { ContactService } from 'src/app/services/contact.service';
 import { Contact } from '../models/contact';
+import { ContactImpl } from 'src/app/classes/contact-impl';
+import { AboutImpl } from 'src/app/classes/about-impl';
 
 @Component({
   selector: 'app-about',
@@ -12,8 +14,8 @@ import { Contact } from '../models/contact';
 export class AboutComponent implements OnInit {
 
   constructor(private aboutservice:AboutService, private contactservice:ContactService) { }
-  aboutResults: About;
-  contactsResults: Contact;
+  aboutResults: About = new AboutImpl();
+  contactsResults: Contact =new ContactImpl();
   ngOnInit(): void {
     this.getAbouts();
     this.getContacts();
