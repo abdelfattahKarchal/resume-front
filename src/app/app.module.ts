@@ -39,7 +39,7 @@ const appRoutes : Routes=[
     SlideOutComponent,
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

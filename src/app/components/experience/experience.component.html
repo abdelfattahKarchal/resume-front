@@ -2,14 +2,16 @@
   <div class="container">
       <h2>8 Years Experience</h2>
       <div class="experience-timeline">
-          <div class="experience-block clearfix">
+          <div *ngFor="let experience of experincesResult" class="experience-block clearfix">
               <div class="meta">
-                  <span class="year">2012 - Current</span>
-                  <span class="company">Themeforest</span>
+                  <span class="year">{{experience.date_start}} - {{experience.date_end}}</span>
+                  <span class="company">{{experience.title}}</span>
               </div> <!-- end .meta -->
               <div class="content">
-                  <h5>Senior Web & UX Designer</h5>
-                  <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velitus sed quia non num quam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                  <h5> <b>{{experience.subtitle}}</b></h5>
+                  <p [innerHTML]="experience.description"></p>
+                  <b>Environnement :</b> <br>
+                  <p>{{experience.environment}}</p>
               </div> <!-- end .content -->
               <div class="icon">
                   <i class="ion-easel"></i>

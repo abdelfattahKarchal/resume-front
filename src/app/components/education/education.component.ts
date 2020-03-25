@@ -19,7 +19,6 @@ export class EducationComponent implements OnInit {
   getEducations(){
     this.educationservice.getAll().subscribe((educations) =>{
       this.educations = educations['data'];
-      console.log(educations);
     } );
 
   }
