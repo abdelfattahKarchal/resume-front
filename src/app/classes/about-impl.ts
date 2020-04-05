@@ -6,4 +6,5 @@ export class AboutImpl implements About{
   description: string="";
   birthday: Date=null;
   image: string="";
+  experience_time: string="";
 }

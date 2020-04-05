@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ExperienceService } from 'src/app/services/experience.service';
 import { Experience } from '../models/experience';
+import { About } from '../models/about';
+import { AboutImpl } from 'src/app/classes/about-impl';
+import { AboutService } from 'src/app/services/about.service';
 
 @Component({
   selector: 'app-experience',
@@ -10,8 +13,9 @@ import { Experience } from '../models/experience';
 export class ExperienceComponent implements OnInit {
 
   experincesResult : Experience[] = [];
+  about : About = new AboutImpl();
 
-  constructor(private experienceservice:ExperienceService) { }
+  constructor(private experienceservice:ExperienceService, private aboutservice:AboutService) { }
 
   ngOnInit(): void {
     (<any>$('.testimonial-slider')).owlCarousel({
@@ -21,6 +25,7 @@ export class ExperienceComponent implements OnInit {
     });
 
     this.getExperiences();
+    this.getAbouts();
   }
 
   getExperiences(){
@@ -28,6 +33,10 @@ export class ExperienceComponent implements OnInit {
       this.experincesResult = experiences['data'];
       console.log(this.experincesResult);
     })
+  }
+
+  getAbouts(){
+    this.aboutservice.findAll().subscribe(about => this.about = about)
   }
 
 }

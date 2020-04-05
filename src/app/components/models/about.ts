@@ -5,4 +5,5 @@ export interface About
   description: string;
   birthday: Date;
   image: string;
+  experience_time:string;
 }
