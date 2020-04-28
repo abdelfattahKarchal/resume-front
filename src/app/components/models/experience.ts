@@ -1,3 +1,5 @@
+import { Project } from './project';
+
 export interface Experience
 {
   id?:number;
@@ -8,4 +10,5 @@ export interface Experience
   description: string;
   environment: string;
   today: boolean;
+  projects: Project[];
 }

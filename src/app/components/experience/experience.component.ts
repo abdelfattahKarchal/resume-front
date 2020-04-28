@@ -34,7 +34,6 @@ export class ExperienceComponent implements OnInit {
       console.log(this.experincesResult);
     })
   }
-
   getAbouts(){
     this.aboutservice.findAll().subscribe(about => this.about = about)
   }

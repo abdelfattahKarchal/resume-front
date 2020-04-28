@@ -9,9 +9,23 @@
               </div> <!-- end .meta -->
               <div class="content">
                   <h5> <b>{{experience.subtitle}}</b></h5>
-                  <p [innerHTML]="experience.description"></p>
-                  <b>Environnement :</b> <br>
-                  <p>{{experience.environment}}</p>
+                  <div *ngFor="let project of experience.projects">
+                    <div *ngIf="project.titre">
+                      <br> <b>Projet {{project.titre}}</b> <br>
+                    </div>
+
+                   <p [innerHTML]="project.description"></p>
+                    <b>Mission :</b> <br>
+                    <div *ngFor="let mission of project.missions">
+                      - {{mission.description}}
+                  </div>
+
+                   <span *ngIf="project.environnements.length > 0 "><b>Environnement :</b> <br></span>
+                      <div *ngFor="let environnement of project.environnements">
+                      <p>{{environnement.outils}}</p>
+                      </div>
+                  </div>
+
               </div> <!-- end .content -->
               <div class="icon">
                   <i class="ion-easel"></i>
