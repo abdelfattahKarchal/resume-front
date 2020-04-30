@@ -7,7 +7,7 @@
                   <label class="progress-bar-label">{{skill.title}} </label>
                   <div class="progress">
                     <!-- aria-valuenow="{{skill.level}}" -->
-                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.level +'%;'}}">
+                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': skill.level +'%'}">
                           <span>{{skill.level}}%</span>
                       </div> <!-- end .progress-bar -->
                   </div> <!-- end .progress -->
