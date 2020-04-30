@@ -1,57 +1,25 @@
-
   <div class="container">
       <h2>My Skills Values</h2>
       <div class="row">
           <div class="col-sm-6">
-              <h4>Technical Skills</h4>
-              <label class="progress-bar-label">Wordpress</label>
-              <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                      <span>85%</span>
-                  </div> <!-- end .progress-bar -->
-              </div> <!-- end .progress -->
-              <label class="progress-bar-label">Photoshop</label>
-              <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">
-                      <span>99%</span>
-                  </div> <!-- end .progress-bar -->
-              </div> <!-- end .progress -->
-              <label class="progress-bar-label">HTML&amp;CSS</label>
-              <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                      <span>75%</span>
-                  </div> <!-- end .progress-bar -->
-              </div> <!-- end .progress -->
-              <label class="progress-bar-label">Javascript</label>
-              <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">
-                      <span>67%</span>
-                  </div> <!-- end .progress-bar -->
-              </div> <!-- end .progress -->
+               <div *ngFor="let skill of skillsResult">
+                <div *ngIf="skill.technical==1">
+                  <label class="progress-bar-label">{{skill.title}} </label>
+                  <div class="progress">
+                    <!-- aria-valuenow="{{skill.level}}" -->
+                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skill.level +'%;'}}">
+                          <span>{{skill.level}}%</span>
+                      </div> <!-- end .progress-bar -->
+                  </div> <!-- end .progress -->
+                </div>
+               </div>
           </div> <!-- end .col-sm-6 -->
           <div class="col-sm-6">
               <h4>Knowledge</h4>
               <div class="row">
-                  <div class="col-sm-6">
-                      <ul class="list-icons purple bold-list">
-                          <li><i class="md-arrow-forward"></i>Install and Configure</li>
-                          <li><i class="md-arrow-forward"></i>Web Usability</li>
-                          <li><i class="md-arrow-forward"></i>Digital Painting</li>
-                          <li><i class="md-arrow-forward"></i>Grid and Layout</li>
-                          <li><i class="md-arrow-forward"></i>Mobile App Design</li>
-                          <li><i class="md-arrow-forward"></i>Graphical Design</li>
-                          <li><i class="md-arrow-forward"></i>SEO Optimization</li>
-                      </ul>
-                  </div> <!-- end .col-sm-6 -->
-                  <div class="col-sm-6">
-                      <ul class="list-icons purple bold-list">
-                          <li><i class="md-arrow-forward"></i>UX and UI Design</li>
-                          <li><i class="md-arrow-forward"></i>Logo Design</li>
-                          <li><i class="md-arrow-forward"></i>3D Animation & Visual Effects</li>
-                          <li><i class="md-arrow-forward"></i>Audio Video Editing</li>
-                          <li><i class="md-arrow-forward"></i>Photography</li>
-                          <li><i class="md-arrow-forward"></i>Web Development</li>
-                          <li><i class="md-arrow-forward"></i>Digital Marketing</li>
+                  <div class="col-sm-6" *ngFor="let skill of skillsResult">
+                      <ul class="list-icons purple bold-list" >
+                          <li *ngIf="skill.technical !=1"><i class="md-arrow-forward"></i>{{ skill.title }}</li>
                       </ul>
                   </div> <!-- end .col-sm-6 -->
               </div> <!-- end .row -->

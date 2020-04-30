@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SkillService } from 'src/app/services/skill.service';
+import { Skill } from '../models/skill';
 //import * as $ from "jquery";
 
 @Component({
@@ -8,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillComponent implements OnInit {
 
-  constructor() { }
+skillsResult : Skill[] = [];
+
+  constructor(private skillservice:SkillService) { }
 
   ngOnInit(): void {
+    this.gettSkills()
 
     $('.progress-bar').on('inview', function (event, isInView) {
 			if (isInView) {
@@ -50,6 +55,14 @@ export class SkillComponent implements OnInit {
 				});
 			}
 		});
+  }
+
+
+
+  gettSkills(){
+    this.skillservice.getAll().subscribe((skills)=>{
+      this.skillsResult = skills['data']
+    })
   }
 
 }
