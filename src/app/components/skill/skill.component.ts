@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SkillService } from 'src/app/services/skill.service';
 import { Skill } from '../models/skill';
+import { Language } from '../models/language';
+import { LanguageService } from 'src/app/services/language.service';
 //import * as $ from "jquery";
 
 @Component({
@@ -11,11 +13,13 @@ import { Skill } from '../models/skill';
 export class SkillComponent implements OnInit {
 
 skillsResult : Skill[] = [];
+languagesResult: Language[] = [];
 
-  constructor(private skillservice:SkillService) { }
+  constructor(private skillservice:SkillService, private languageservice:LanguageService) { }
 
   ngOnInit(): void {
-    this.gettSkills()
+    this.getSkills();
+    this.getLanguages();
 		$('.dial').on('inview', function (event, isInView) {
 			if (isInView) {
 				var $this = $(this);
@@ -49,9 +53,16 @@ skillsResult : Skill[] = [];
 		});
   }
 
-  gettSkills(){
+  getSkills(){
     this.skillservice.getAll().subscribe((skills)=>{
       this.skillsResult = skills['data']
+    })
+  }
+
+  getLanguages(){
+    this.languageservice.getAll().subscribe((languages)=>{
+      this.languagesResult = languages['data']
+      console.log(this.languagesResult)
     })
   }
 

@@ -15,6 +15,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
 
+// Import ng-circle-progress
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 // HttpClientModule sert pour communiquer avec des requetes http
 import { HttpClientModule } from '@angular/common/http';
   //import { from } from 'rxjs';
@@ -44,7 +47,16 @@ const appRoutes : Routes=[
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 0,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "",
+      animationDuration: 300
+    })
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'},
 
